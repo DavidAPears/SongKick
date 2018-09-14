@@ -11,8 +11,11 @@ let scrape = async () => {
       let elements = document.querySelectorAll('.content.block-group.chatterbox-margin');
 
       for (var element of elements){ // Loops through each event
-        let Title = element.childNodes[1].children[0].innerText;
-        data.push({Title}); // Returns Title
+        let Title = element.childNodes[1].children[0].innerText;// Returns Title
+        let CityAndVenue = element.childNodes[3].children[1].children[0].innerText; // Returns City & Venue (as one string)
+        let DateAndTime = element.childNodes[3].children[1].children[1].innerText; // Returns Date & Time
+
+        data.push({Title, CityAndVenue, DateAndTime}); 
         }
 
         return data;
